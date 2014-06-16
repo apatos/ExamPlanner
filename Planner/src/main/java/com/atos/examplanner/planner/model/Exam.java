@@ -1,9 +1,11 @@
 package com.atos.examplanner.planner.model;
 
+import java.io.Serializable;
+
 /**
  * Created by andrewpatterson on 16/06/2014.
  */
-public class Exam {
+public class Exam implements Serializable{
 
     private String examName;
     private String teacherName;

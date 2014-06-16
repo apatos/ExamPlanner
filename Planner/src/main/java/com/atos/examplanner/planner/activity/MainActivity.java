@@ -8,9 +8,14 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.atos.examplanner.planner.R;
+import com.atos.examplanner.planner.model.Exam;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends Activity {
+
+    private ArrayList<Exam> examList;
 
     /**
      * When activity is first created this function is called
@@ -24,6 +29,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        examList = new ArrayList<Exam>();
     }
 
 
@@ -54,6 +60,18 @@ public class MainActivity extends Activity {
 
         //Intent for activity
         Intent addIntent = new Intent(this, AddSubjectActivity.class);
-        startActivity(addIntent);
+        startActivityForResult(addIntent, 1);
     }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == 1) {
+            if (resultCode == Activity.RESULT_OK){
+                Exam exam = (Exam) data.getSerializableExtra("ExamTag");
+                examList.add(exam);
+            }
+        }
+
+    }
+
 }

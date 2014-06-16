@@ -1,6 +1,7 @@
 package com.atos.examplanner.planner.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -84,6 +85,9 @@ public class AddSubjectActivity extends Activity {
         exam.setDesiredMark(desiredMark.getText().toString());
         exam.setExamWorth(examWorth.getText().toString());
 
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("ExamTag", exam);
+        setResult(Activity.RESULT_OK, intent);
         finish();
     }
 }
