@@ -1,9 +1,11 @@
-package com.atos.examplanner.planner;
+package com.atos.examplanner.planner.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.atos.examplanner.planner.R;
 
 
 public class MainActivity extends Activity {
