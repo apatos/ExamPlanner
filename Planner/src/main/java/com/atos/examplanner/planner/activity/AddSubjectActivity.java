@@ -1,21 +1,22 @@
 package com.atos.examplanner.planner.activity;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.atos.examplanner.planner.R;
 
+/**
+ * Created by andrewpatterson on 16/06/2014.
+ */
+public class AddSubjectActivity extends Activity {
 
-public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_add_subject);
     }
 
 
@@ -36,12 +37,5 @@ public class MainActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    public void addNewItem(View view) {
-
-        Intent addIntent = new Intent(this, AddSubjectActivity.class);
-        startActivity(addIntent);
-        finish();
     }
 }

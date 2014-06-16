@@ -5,4 +5,12 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+    <string name="label_name_subject">Name of the Subject</string>
+    <string name="label_name_teacher">Name of Teacher</string>
+    <string name="label_exam_date">Date of the Exam</string>
+    <string name="label_time_aim">Amount of time wanted to revise this Exam?</string>
+    <string name="label_mark_wanted">What mark do you want to get for this Exam?</string>
+    <string name="label_exam_worth">How much is this exam worth of total grade?</string>
+    <string name="button_add_exam">Add exam</string>
+
 </resources>

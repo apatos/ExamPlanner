@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/label_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_name_subject"/>
+    <EditText
+        android:id="@+id/text_box_name"
+        android:layout_width="@dimen/activity_add_subject_input_width"
+        android:layout_height="wrap_content"
+        android:inputType="text"/>
+    <TextView
+        android:id="@+id/label_teacher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_name_teacher"/>
+    <EditText
+        android:id="@+id/text_box_teacher"
+        android:layout_width="@dimen/activity_add_subject_input_width"
+        android:layout_height="wrap_content"
+        android:inputType="text"/>
+    <TextView
+        android:id="@+id/label_exam_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_exam_date"/>
+    <EditText
+        android:id="@+id/text_box_exam_date"
+        android:layout_width="@dimen/activity_add_subject_input_width"
+        android:layout_height="wrap_content"
+        android:inputType="date"/>
+    <TextView
+        android:id="@+id/label_time_aim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_time_aim"/>
+    <EditText
+        android:id="@+id/text_box_time_aim"
+        android:layout_width="@dimen/activity_add_subject_input_width"
+        android:layout_height="wrap_content"
+        android:inputType="time"/>
+    <TextView
+        android:id="@+id/label_mark_wanted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_mark_wanted" />
+    <EditText
+        android:id="@+id/text_box_mark_wanted"
+        android:layout_width="@dimen/activity_add_subject_input_width"
+        android:layout_height="wrap_content"
+        android:inputType="number"/>
+    <TextView
+        android:id="@+id/label_exam_worth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_exam_worth"/>
+    <EditText
+        android:id="@+id/text_box_exam_worth"
+        android:layout_width="@dimen/activity_add_subject_input_width"
+        android:layout_height="wrap_content"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/button_add_exam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_add_exam"/>
+
+</LinearLayout>
