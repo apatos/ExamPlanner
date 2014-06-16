@@ -33,7 +33,7 @@
         android:id="@+id/text_box_exam_date"
         android:layout_width="@dimen/activity_add_subject_input_width"
         android:layout_height="wrap_content"
-        android:inputType="date"/>
+        android:inputType="text"/>
     <TextView
         android:id="@+id/label_time_aim"
         android:layout_width="wrap_content"
@@ -43,7 +43,7 @@
         android:id="@+id/text_box_time_aim"
         android:layout_width="@dimen/activity_add_subject_input_width"
         android:layout_height="wrap_content"
-        android:inputType="time"/>
+        android:inputType="text"/>
     <TextView
         android:id="@+id/label_mark_wanted"
         android:layout_width="wrap_content"
@@ -53,7 +53,7 @@
         android:id="@+id/text_box_mark_wanted"
         android:layout_width="@dimen/activity_add_subject_input_width"
         android:layout_height="wrap_content"
-        android:inputType="number"/>
+        android:inputType="text"/>
     <TextView
         android:id="@+id/label_exam_worth"
         android:layout_width="wrap_content"
@@ -63,12 +63,13 @@
         android:id="@+id/text_box_exam_worth"
         android:layout_width="@dimen/activity_add_subject_input_width"
         android:layout_height="wrap_content"
-        android:inputType="number"/>
+        android:inputType="text"/>
 
     <Button
         android:id="@+id/button_add_exam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_add_exam"/>
+        android:text="@string/button_add_exam"
+        android:onClick="addButtonPressed"/>
 
 </LinearLayout>

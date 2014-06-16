@@ -1,7 +1,5 @@
 package com.atos.examplanner.planner.model;
 
-import java.util.Date;
-
 /**
  * Created by andrewpatterson on 16/06/2014.
  */
@@ -9,11 +7,11 @@ public class Exam {
 
     private String examName;
     private String teacherName;
-    private Date examDate;
+    private String examDate;
     private String revisionTimeWanted;
     private String revisionTimeCurrently;
-    private int desiredMark;
-    private int examPercentage;
+    private String  desiredMark;
+    private String examWorth;
 
     public String getExamName() {
         return examName;
@@ -31,11 +29,11 @@ public class Exam {
         this.teacherName = teacherName;
     }
 
-    public Date getExamDate() {
+    public String getExamDate() {
         return examDate;
     }
 
-    public void setExamDate(Date examDate) {
+    public void setExamDate(String examDate) {
         this.examDate = examDate;
     }
 
@@ -55,19 +53,19 @@ public class Exam {
         this.revisionTimeCurrently = revisionTimeCurrently;
     }
 
-    public int getDesiredMark() {
+    public String getDesiredMark() {
         return desiredMark;
     }
 
-    public void setDesiredMark(int desiredMark) {
+    public void setDesiredMark(String desiredMark) {
         this.desiredMark = desiredMark;
     }
 
-    public int getExamPercentage() {
-        return examPercentage;
+    public String getExamWorth() {
+        return examWorth;
     }
 
-    public void setExamPercentage(int examPercentage) {
-        this.examPercentage = examPercentage;
+    public void setExamWorth(String examWorth) {
+        this.examWorth = examWorth;
     }
 }
