@@ -12,9 +12,11 @@ import com.atos.examplanner.planner.model.Exam;
 
 /**
  * Created by andrewpatterson on 16/06/2014.
+ * This activity is responsible for adding information about an activity to a exam object
  */
 public class AddSubjectActivity extends Activity {
 
+    //EditText Variables
     EditText examName;
     EditText teacherName;
     EditText examDate;
@@ -22,6 +24,15 @@ public class AddSubjectActivity extends Activity {
     EditText desiredMark;
     EditText examWorth;
 
+    /**
+     * When activity is first created this function is called.
+     * It expands the layout and finds the EditText Views
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being
+     *                           shut down then this Bundle contains the data it most recently
+     *                           supplied in onSaveInstanceState(Bundle). <b>Note: Otherwise it
+     *                           is null.</b>
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +47,6 @@ public class AddSubjectActivity extends Activity {
 
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -57,14 +67,23 @@ public class AddSubjectActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Called when the Add button is pressed.
+     * Creates a new exam object and puts info from editText fields into corresponding variables.
+     * @param view
+     */
     public void addButtonPressed(View view) {
+        //Creates new exam object
         Exam exam = new Exam();
 
+        //Calls the function from the model. Gets the text from the EditText view and converts it to a string
         exam.setExamName(examName.getText().toString());
         exam.setTeacherName(teacherName.getText().toString());
         exam.setExamDate(examDate.getText().toString());
         exam.setRevisionTimeWanted(timeWanted.getText().toString());
-        exam.setDesiredMark(Integer.parseInt(desiredMark.getText().toString()));
-        exam.setExamWorth(Integer.parseInt(examWorth.getText().toString()));
+        exam.setDesiredMark(desiredMark.getText().toString());
+        exam.setExamWorth(examWorth.getText().toString());
+
+        finish();
     }
 }

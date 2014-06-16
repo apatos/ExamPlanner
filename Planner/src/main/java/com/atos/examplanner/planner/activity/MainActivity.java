@@ -12,6 +12,14 @@ import com.atos.examplanner.planner.R;
 
 public class MainActivity extends Activity {
 
+    /**
+     * When activity is first created this function is called
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being
+     *                           shut down then this Bundle contains the data it most recently
+     *                           supplied in onSaveInstanceState(Bundle). <b>Note: Otherwise it
+     *                           is null.</b>
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +46,14 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * When button is pressed this starts the new activity
+     * @param view
+     */
     public void addNewItem(View view) {
 
+        //Intent for activity
         Intent addIntent = new Intent(this, AddSubjectActivity.class);
         startActivity(addIntent);
-        finish();
     }
 }

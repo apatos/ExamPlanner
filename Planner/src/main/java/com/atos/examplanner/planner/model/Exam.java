@@ -10,7 +10,7 @@ public class Exam {
     private String examDate;
     private String revisionTimeWanted;
     private String revisionTimeCurrently;
-    private String  desiredMark;
+    private String desiredMark;
     private String examWorth;
 
     public String getExamName() {
