@@ -71,9 +71,16 @@ public class ExamListAdaptor extends BaseAdapter{
         TextView titleView = (TextView) convertView.findViewById(R.id.exam_row_exam_title);
         TextView teacherView = (TextView) convertView.findViewById(R.id.exam_row_teacher_name);
         TextView dateView = (TextView) convertView.findViewById(R.id.exam_row_exam_date);
+        TextView timeView = (TextView) convertView.findViewById(R.id.exam_row_studied_time);
 
         titleView.setText(exam.getExamName());
         teacherView.setText(exam.getTeacherName());
         dateView.setText(exam.getExamDate());
+
+        if (exam.getRevisionTimeCurrently() == null){
+            timeView.setText("00.00");
+        } else {
+            timeView.setText(exam.getRevisionTimeCurrently());
+        }
     }
 }

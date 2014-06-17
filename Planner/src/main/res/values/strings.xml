@@ -14,5 +14,10 @@
     <string name="button_add_exam">Add exam</string>
 
     <string name="placeholder_text">Placeholder</string>
+    <string name="row_studied_text">Amount of time studied for</string>
+
+    <string name="button_select">Select</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="label_select_time">Add amount of time studied</string>
 
 </resources>
