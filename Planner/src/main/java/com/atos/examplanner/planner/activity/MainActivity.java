@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.atos.examplanner.planner.R;
+import com.atos.examplanner.planner.adaptor.ExamListAdaptor;
 import com.atos.examplanner.planner.model.Exam;
 
 import java.util.ArrayList;
@@ -30,6 +33,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         examList = new ArrayList<Exam>();
+
     }
 
 
@@ -45,7 +49,7 @@ public class MainActivity extends Activity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+//        int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
         }
@@ -69,9 +73,18 @@ public class MainActivity extends Activity {
             if (resultCode == Activity.RESULT_OK){
                 Exam exam = (Exam) data.getSerializableExtra("ExamTag");
                 examList.add(exam);
+                createListView();
             }
         }
 
+    }
+
+    public void createListView () {
+
+        ListView listView = (ListView) findViewById(R.id.list_exam);
+
+        ExamListAdaptor adaptor = new ExamListAdaptor(examList, this);
+        listView.setAdapter(adaptor);
     }
 
 }

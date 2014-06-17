@@ -85,8 +85,11 @@ public class AddSubjectActivity extends Activity {
         exam.setDesiredMark(desiredMark.getText().toString());
         exam.setExamWorth(examWorth.getText().toString());
 
+        //Creates a new intent
         Intent intent = new Intent(this, MainActivity.class);
+        //Puts the object into the intent with the Tag "Exam Tag"
         intent.putExtra("ExamTag", exam);
+        //Sets the result of the activity
         setResult(Activity.RESULT_OK, intent);
         finish();
     }

@@ -13,4 +13,6 @@
     <string name="label_exam_worth">How much is this exam worth of total grade?</string>
     <string name="button_add_exam">Add exam</string>
 
+    <string name="placeholder_text">Placeholder</string>
+
 </resources>
