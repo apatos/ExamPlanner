@@ -11,7 +11,6 @@ import com.atos.examplanner.planner.R;
 import com.atos.examplanner.planner.model.Exam;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by andrewpatterson on 17/06/2014.

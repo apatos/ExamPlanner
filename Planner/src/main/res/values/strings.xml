@@ -12,6 +12,13 @@
     <string name="label_mark_wanted">What mark do you want to get for this Exam?</string>
     <string name="label_exam_worth">How much is this exam worth of total grade?</string>
     <string name="button_add_exam">Add exam</string>
+    <string name="hint_subject">e.g English</string>
+    <string name="hint_teacher">Mr A.S.Perspex</string>
+    <string name="hint_date">xx/xx/xxxx</string>
+    <string name="hint_time_aim">4</string>
+    <string name="hint_mark_wanted">65</string>
+    <string name="hint_exam_worth">50</string>
+
 
     <string name="placeholder_text">Placeholder</string>
     <string name="row_studied_text">Amount of time studied for</string>
@@ -19,5 +26,7 @@
     <string name="button_select">Select</string>
     <string name="button_cancel">Cancel</string>
     <string name="label_select_time">Add amount of time studied</string>
+    <string name="label_hours">hours</string>
+    <string name="label_percentage">%</string>
 
 </resources>

@@ -1,6 +1,7 @@
 package com.atos.examplanner.planner.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by andrewpatterson on 16/06/2014.
@@ -12,8 +13,8 @@ public class Exam implements Serializable{
     private String examDate;
     private String revisionTimeWanted;
     private String revisionTimeCurrently;
-    private String desiredMark;
-    private String examWorth;
+    private int desiredMark;
+    private int examWorth;
 
     public String getExamName() {
         return examName;
@@ -55,19 +56,19 @@ public class Exam implements Serializable{
         this.revisionTimeCurrently = revisionTimeCurrently;
     }
 
-    public String getDesiredMark() {
+    public int getDesiredMark() {
         return desiredMark;
     }
 
-    public void setDesiredMark(String desiredMark) {
+    public void setDesiredMark(int desiredMark) {
         this.desiredMark = desiredMark;
     }
 
-    public String getExamWorth() {
+    public int getExamWorth() {
         return examWorth;
     }
 
-    public void setExamWorth(String examWorth) {
+    public void setExamWorth(int examWorth) {
         this.examWorth = examWorth;
     }
 }
