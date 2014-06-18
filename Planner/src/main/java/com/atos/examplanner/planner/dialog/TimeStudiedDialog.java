@@ -90,9 +90,6 @@ public class TimeStudiedDialog extends DialogFragment {
      * Cancels the dialog fragment
      */
     private void cancelDialog() {
-        if (listener != null) {
-            listener.onTimeSelectionCancelled(requestCode);
-        }
 
         dismiss();
     }
@@ -103,12 +100,6 @@ public class TimeStudiedDialog extends DialogFragment {
     public interface TimeStudiedInteractionListener extends Serializable {
 
         public void onTimeSelected(String timeEntered, int requestCode, int position);
-        /**
-         * Called when the date selection dialog is cancelled
-         *
-         * @param requestCode Request code used to launch the fragment
-         */
-        public void onTimeSelectionCancelled(int requestCode);
 
     }
 }

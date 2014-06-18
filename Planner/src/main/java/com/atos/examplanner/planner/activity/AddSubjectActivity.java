@@ -39,6 +39,7 @@ public class AddSubjectActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_subject);
 
+        //Finds the EditText views by their ids
         examName = (EditText)findViewById(R.id.text_box_name);
         teacherName = (EditText)findViewById(R.id.text_box_teacher);
         examDate  = (EditText)findViewById(R.id.text_box_exam_date);
