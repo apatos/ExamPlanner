@@ -26,13 +26,22 @@ public class TimeStudiedDialog extends DialogFragment {
     private int position;
     private EditText editText;
 
+    /**
+     * Called when Dialog is created. Passes information to rest of fragment
+     * @param requestCode
+     * @param position
+     * @param listener
+     * @return fragment
+     */
     public static TimeStudiedDialog getInstance(int requestCode, int position, TimeStudiedInteractionListener listener) {
 
+        //Create a bundle and put the information in it
         Bundle bundle = new Bundle();
         bundle.putInt(REQUEST_CODE_KEY, requestCode);
         bundle.putSerializable(LISTENER_KEY, listener);
         bundle.putInt(POSITION_KEY, position);
 
+        //Create fragment and attach arguments to it
         TimeStudiedDialog fragment = new TimeStudiedDialog();
         fragment.setArguments(bundle);
 
@@ -43,6 +52,7 @@ public class TimeStudiedDialog extends DialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Get the arguments if they are not null and get the information out of it
         if (getArguments() != null) {
             requestCode = getArguments().getInt(REQUEST_CODE_KEY);
             position = getArguments().getInt(POSITION_KEY);
@@ -51,6 +61,14 @@ public class TimeStudiedDialog extends DialogFragment {
 
     }
 
+    /**
+     * called to create view.
+     * Find buttons in the dialog and set the required on click listeners
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return the rootView
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.dialog_time_studied, container, false);
@@ -78,6 +96,9 @@ public class TimeStudiedDialog extends DialogFragment {
         return rootView;
     }
 
+    /**
+     * When time ok button is pressed this function is called. Get the text from information from the editText and pass it on
+     */
     private void timeSelected() {
         if (listener != null) {
             String timeEntered = editText.getText().toString();
@@ -96,6 +117,7 @@ public class TimeStudiedDialog extends DialogFragment {
 
     /**
      * An interface that must be implemented for any activity that displays this Dialog fragment
+     * Pass back information to the activity by calling this function
      */
     public interface TimeStudiedInteractionListener extends Serializable {
 

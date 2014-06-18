@@ -2,12 +2,9 @@ package com.atos.examplanner.planner.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -17,20 +14,18 @@ import com.atos.examplanner.planner.adaptor.ExamListAdaptor;
 import com.atos.examplanner.planner.dialog.TimeStudiedDialog;
 import com.atos.examplanner.planner.model.Exam;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-
+/**
+ * Main Activity of the application. This extends Activity and Impliments the TimeStudiedDialog Listener
+ */
 public class MainActivity extends Activity implements TimeStudiedDialog.TimeStudiedInteractionListener {
 
     private ExamListAdaptor examListAdaptor;
     private ArrayList<Exam> examList;
     private static final int ADD_SUBJECT_REQUEST_CODE = 1;
-    private static final String FILE_NAME = "ExamList";
+    private FileUtils fileUtils;
+
     /**
      * When activity is first created this function is called
      *
@@ -41,35 +36,17 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        fileUtils = new FileUtils();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        examList = new ArrayList<Exam>();
 
-        if (loadListFromFile(examList) != null) {
-          examList = loadListFromFile(examList);
+        //create a new exam ArrayList of Exam object and get load list if it has been created. Create the view.
+        examList = new ArrayList<Exam>();
+        if (fileUtils.loadListFromFile(examList) != null) {
+          examList = fileUtils.loadListFromFile(examList);
         }
 
         createListView();
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     /**
@@ -94,15 +71,14 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
 
         if (requestCode == ADD_SUBJECT_REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK){
-                //gets the information out of the Intent
+                //Get the information out of the Intent
                 Exam exam = (Exam) data.getSerializableExtra("ExamTag");
-                //Adds the exam to the examList
+                //Add the exam to the examList
                 examList.add(exam);
-                //calls upon createListFunction
+                //call upon createListFunction
                 createListView();
             }
         }
-
     }
 
     /**
@@ -110,103 +86,90 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
      */
     public void createListView () {
 
-        //finds the listView from the main view
+        //Find the listView from the main view
         ListView listView = (ListView) findViewById(R.id.list_exam);
 
-        //Passes the adaptor the array list and the context
+        //Pass the adaptor the array list and the context of the current activity
         examListAdaptor = new ExamListAdaptor(examList, this);
 
         listView.setAdapter(examListAdaptor);
 
+        //Set setOnItemClickListener for the list view. Creates a custom dialog to add time to the item
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Create the dialog and pass the information to the getInstance function of the Dialog
                 TimeStudiedDialog timeStudiedDialog = TimeStudiedDialog.getInstance(1, position, MainActivity.this);
+                //Show the timeStudiedDialog by giving it a fragment manager.
                 timeStudiedDialog.show(getFragmentManager(), null);
-
-
             }
         });
 
+        //Set setOnItemLongClickListener. This calls upon a function to create an alert dialog that allows the item to be deleted
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
 
-                alertDialogBuilder.setTitle("Delete");
-                alertDialogBuilder.setMessage("Delete this message?");
-                alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        examList.remove(position);
-                        examListAdaptor.notifyDataSetChanged();
-                        writeListToFile(examList);
-                        dialogInterface.cancel();
-                    }
-                });
-                alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.cancel();
-                    }
-                });
-
-                AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.show();
+                //Calls the createDeleteDialog function and passes it the position of the item that has been clicked
+                createDeleteDialog(position);
 
                 return true;
             }
         });
     }
 
+    /**
+     * When a time has been selected in the dialog this function is called to update the item selected
+     * @param timeEntered time that has been entered in the dialog
+     * @param requestCode the request code for the dialog
+     * @param position the position of the item within the list
+     */
     @Override
     public void onTimeSelected(String timeEntered, int requestCode, int position) {
 
+        //Get the Exam object that has been pressed
         Exam selectedExam = examList.get(position);
+        //Set the Revision time currently with the timeEntered string
         selectedExam.setRevisionTimeCurrently(timeEntered);
-        writeListToFile(examList);
+        //Save the change
+        fileUtils.writeListToFile(examList);
+        //Inform the adaptor that the examList has changed
         examListAdaptor.notifyDataSetChanged();
 
     }
 
-    private void writeListToFile (ArrayList<Exam> examList) {
 
-        File examFile = getFileStreamPath(FILE_NAME);
+    /**
+     * Function to create dialog to allow the item pressed to be deleted
+     * @param position
+     */
+    private void createDeleteDialog (final int position) {
 
-        try {
-            if(examFile.exists() || examFile.createNewFile()) {
+        //Get the alertDialog builder
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+        //Set the title, message, PositiveButton and NegativeButtons.
+        alertDialogBuilder.setTitle("Delete");
+        alertDialogBuilder.setMessage("Delete this message?");
+        alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
-                FileOutputStream fileOutputStream = openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
-                ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-                objectOutputStream.writeObject(examList);
-                fileOutputStream.close();
-
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //Remove the selected item from the examList
+                examList.remove(position);
+                examListAdaptor.notifyDataSetChanged();
+                fileUtils.writeListToFile(examList);
+                dialogInterface.cancel();
             }
-        } catch (Exception e){
-            e.printStackTrace();
-        }
+        });
+        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+
+        //Create the alertDialog and then show it
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
-
-    private ArrayList<Exam> loadListFromFile (ArrayList<Exam> examLoadList) {
-
-     File examFile = getFileStreamPath(FILE_NAME);
-       try {
-           if (examFile.exists()) {
-
-               FileInputStream fileInputStream = openFileInput(FILE_NAME);
-               ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-               examLoadList = (ArrayList<Exam>) objectInputStream.readObject();
-               fileInputStream.close();
-
-           } else {
-               return null;
-           }
-
-       }catch (Exception e) {
-               e.printStackTrace();
-           }
-
-        return examLoadList;
-    }
-
 }

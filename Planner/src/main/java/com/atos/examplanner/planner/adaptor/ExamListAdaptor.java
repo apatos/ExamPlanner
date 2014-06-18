@@ -59,7 +59,7 @@ public class ExamListAdaptor extends BaseAdapter{
     }
 
     /**
-     * Sets up the view for each row. Get the position of the item and sets the text for it.
+     * Set up the view for each row. Get the position of the item and sets the text for it.
      * @param position the position of the item in the list view
      * @param convertView the individual row view of each item in the list view
      */

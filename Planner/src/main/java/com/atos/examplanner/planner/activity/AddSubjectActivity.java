@@ -3,8 +3,6 @@ package com.atos.examplanner.planner.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
@@ -17,13 +15,13 @@ import com.atos.examplanner.planner.model.Exam;
  */
 public class AddSubjectActivity extends Activity {
 
-    //EditText Variables
-    EditText examName;
-    EditText teacherName;
-    EditText examDate;
-    EditText timeWanted;
-    EditText desiredMark;
-    EditText examWorth;
+    //EditText Variables for each editText to be on screen
+    private EditText examName;
+    private EditText teacherName;
+    private EditText examDate;
+    private EditText timeWanted;
+    private EditText desiredMark;
+    private EditText examWorth;
 
     /**
      * When activity is first created this function is called.
@@ -37,6 +35,7 @@ public class AddSubjectActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Set the layout you want to appear
         setContentView(R.layout.activity_add_subject);
 
         //Finds the EditText views by their ids
@@ -48,25 +47,6 @@ public class AddSubjectActivity extends Activity {
         examWorth = (EditText)findViewById(R.id.text_box_exam_worth);
 
 
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     /**
@@ -92,6 +72,7 @@ public class AddSubjectActivity extends Activity {
         intent.putExtra("ExamTag", exam);
         //Sets the result of the activity
         setResult(Activity.RESULT_OK, intent);
+        //Finishes the activity so cannot go back to it
         finish();
     }
 
