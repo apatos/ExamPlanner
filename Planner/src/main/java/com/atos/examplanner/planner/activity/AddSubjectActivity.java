@@ -10,7 +10,6 @@ import com.atos.examplanner.planner.R;
 import com.atos.examplanner.planner.model.Exam;
 
 /**
- * Created by andrewpatterson on 16/06/2014.
  * This activity is responsible for adding information about an activity to a exam object
  */
 public class AddSubjectActivity extends Activity {

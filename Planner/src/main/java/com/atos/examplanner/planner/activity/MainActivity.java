@@ -95,16 +95,14 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
         //Pass the adaptor the array list and the context of the current activity
         examListAdaptor = new ExamListAdaptor(examList, this);
 
+        //Set the adaptor to the listView
         listView.setAdapter(examListAdaptor);
 
         //Set setOnItemClickListener for the list view. Creates a custom dialog to add time to the item
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Create the dialog and pass the information to the getInstance function of the Dialog
-                TimeStudiedDialog timeStudiedDialog = TimeStudiedDialog.getInstance(1, position, MainActivity.this);
-                //Show the timeStudiedDialog by giving it a fragment manager.
-                timeStudiedDialog.show(getFragmentManager(), null);
+                createTimeDialog(position);
             }
         });
 
@@ -142,6 +140,16 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
     }
 
 
+    /**
+     * Creates the custom time dialog and shows it
+     * @param position
+     */
+    private void createTimeDialog (int position) {
+        //Create the dialog and pass the information to the getInstance function of the Dialog
+        TimeStudiedDialog timeStudiedDialog = TimeStudiedDialog.getInstance(1, position, MainActivity.this);
+        //Show the timeStudiedDialog by giving it a fragment manager.
+        timeStudiedDialog.show(getFragmentManager(), null);
+    }
     /**
      * Function to create dialog to allow the item pressed to be deleted
      * @param position
