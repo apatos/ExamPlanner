@@ -14,6 +14,9 @@ import com.atos.examplanner.planner.adaptor.ExamListAdaptor;
 import com.atos.examplanner.planner.dialog.TimeStudiedDialog;
 import com.atos.examplanner.planner.model.Exam;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 /**
@@ -26,6 +29,7 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
     private static final int ADD_SUBJECT_REQUEST_CODE = 1;
     private FileUtils fileUtils;
 
+    private static final String FILE_NAME = "ExamList";
     /**
      * When activity is first created this function is called
      *
@@ -42,7 +46,7 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
 
         //create a new exam ArrayList of Exam object and get load list if it has been created.
         examList = new ArrayList<Exam>();
-        ArrayList<Exam> loadedList = fileUtils.loadListFromFile(examList);
+        ArrayList<Exam> loadedList = FileUtils.loadListFromFile(examList, this);
 
         if ( loadedList != null) {
           examList = loadedList;
@@ -133,7 +137,7 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
         //Set the Revision time currently with the timeEntered string
         selectedExam.setRevisionTimeCurrently(timeEntered);
         //Save the change
-        fileUtils.writeListToFile(examList);
+        fileUtils.writeListToFile(examList, this);
         //Inform the adaptor that the examList has changed
         examListAdaptor.notifyDataSetChanged();
 
@@ -168,7 +172,7 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
                 //Remove the selected item from the examList
                 examList.remove(position);
                 examListAdaptor.notifyDataSetChanged();
-                fileUtils.writeListToFile(examList);
+                fileUtils.writeListToFile(examList, MainActivity.this);
                 dialogInterface.cancel();
             }
         });

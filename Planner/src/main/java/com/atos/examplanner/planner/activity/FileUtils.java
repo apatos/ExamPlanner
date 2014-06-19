@@ -14,7 +14,6 @@ import java.util.ArrayList;
 
 /**
  * Class to be treated as black box. To save and load files
- * Created by andrewpatterson on 18/06/2014.
  */
 public class FileUtils extends Activity {
 
@@ -23,9 +22,9 @@ public class FileUtils extends Activity {
      * Save function for list
      * @param examList the list of exams to be saved
      */
-    public void writeListToFile (ArrayList<Exam> examList) {
+    public void writeListToFile (ArrayList<Exam> examList, Context context) {
 
-        File examFile = getFileStreamPath(FILE_NAME);
+        File examFile = context.getFileStreamPath(FILE_NAME);
 
         try {
             if(examFile.exists() || examFile.createNewFile()) {
@@ -46,13 +45,13 @@ public class FileUtils extends Activity {
      * @param examLoadList the list that is passed into the function
      * @return either the loaded list or null if no list exists
      */
-    public ArrayList<Exam> loadListFromFile (ArrayList<Exam> examLoadList) {
+    public static ArrayList<Exam> loadListFromFile (ArrayList<Exam> examLoadList, Context context) {
 
-        File examFile = getFileStreamPath(FILE_NAME);
+        File examFile = context.getFileStreamPath(FILE_NAME);
         try {
             if (examFile.exists()) {
 
-                FileInputStream fileInputStream = openFileInput(FILE_NAME);
+                FileInputStream fileInputStream = context.openFileInput(FILE_NAME);
                 ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
                 examLoadList = (ArrayList<Exam>) objectInputStream.readObject();
                 fileInputStream.close();
