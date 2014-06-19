@@ -8,6 +8,13 @@ import java.util.Date;
  */
 public class Exam implements Serializable{
 
+    /**
+     * TODO Day 1 Task 1
+     * Create Getters and Setters for the String Variables examName, teacherName, examDate,
+     * revisionTimeWanted, revisionTimeCurrently
+     * Create Getters and Setters for the int variables desiredMark and examWorth
+     */
+
     private String examName;
     private String teacherName;
     private String examDate;

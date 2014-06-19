@@ -4,6 +4,14 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--
+    TODO DAY 1 task 5
+    Create UI for screen 2
+    Labels and EditText needed for Subject Name, Teacher, Date, Time wanted to Revise
+    Mark wanted and Percentage exam is worth of total grade
+    Create Button to add exam
+    -->
+
     <TextView
         android:id="@+id/label_name"
         android:layout_width="wrap_content"

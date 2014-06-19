@@ -14,6 +14,13 @@ import com.atos.examplanner.planner.model.Exam;
  */
 public class AddSubjectActivity extends Activity {
 
+    /**
+     * TODO Day 1 Task 5
+     * Adding function to Activity
+     * In on create find the views of the EditTexts
+     * In button press function create a new exam object set the information from the Edit Texts to it
+     * Then finish the activity
+     */
     //EditText Variables for each editText to be on screen
     private EditText examName;
     private EditText teacherName;
@@ -54,30 +61,16 @@ public class AddSubjectActivity extends Activity {
      * @param view
      */
     public void addButtonPressed(View view) {
-        //Creates new exam object
-        Exam exam = new Exam();
 
-        //Calls the function from the model. Gets the text from the EditText view and converts it to a string
-        exam.setExamName(examName.getText().toString());
-        exam.setTeacherName(teacherName.getText().toString());
-        exam.setExamDate(examDate.getText().toString());
-        exam.setRevisionTimeWanted(timeWanted.getText().toString());
 
-        if (!desiredMark.getText().toString().equals("")) {
-            exam.setDesiredMark(Integer.parseInt(desiredMark.getText().toString()));
-        }
-        if (!examWorth.getText().toString().equals("")) {
-            exam.setExamWorth(Integer.parseInt(examWorth.getText().toString()));
-        }
+        /**
+         * TODO DAY 2 Task 8
+         * To return information back to the main activity.
+         * Start a new intent and put the Exam object into it
+         * Set the result of the activity as the intent.
+         * Finish the activity
+         */
 
-        //Creates a new intent
-        Intent intent = new Intent(this, MainActivity.class);
-        //Puts the object into the intent with the Tag "Exam Tag"
-        intent.putExtra("ExamTag", exam);
-        //Sets the result of the activity
-        setResult(Activity.RESULT_OK, intent);
-        //Finishes the activity so cannot go back to it
-        finish();
     }
 
 }

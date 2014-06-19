@@ -38,8 +38,10 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //create a new exam ArrayList of Exam object and get load list if it has been created.
-        examList = new ArrayList<Exam>();
+        /**
+         * TODO Day 2 task 6
+         * create a new exam ArrayList of Exam objects
+         */
 
         /**
          * TODO Day 3 Task 17
@@ -55,10 +57,20 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
      */
     public void addNewItem(View view) {
 
+        /**
+         * TODO Day 1 Task 4
+         * Add New Intent this current context and new activity you want to start
+         * Start activity with the intent
+         */
+
+        /**
+         * TODO Day 2 Task 7
+         * Start the activity for a result.
+         */
         //Intent for activity
         Intent addIntent = new Intent(this, AddSubjectActivity.class);
         //Starts the activity with the Intent and request code
-        startActivityForResult(addIntent, ADD_SUBJECT_REQUEST_CODE);
+        startActivity(addIntent);
     }
 
     /**
@@ -69,16 +81,12 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
      */
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        if (requestCode == ADD_SUBJECT_REQUEST_CODE) {
-            if (resultCode == Activity.RESULT_OK){
-                //Get the information out of the Intent
-                Exam exam = (Exam) data.getSerializableExtra("ExamTag");
-                //Add the exam to the examList
-                examList.add(exam);
-                //call upon createListFunction
+        /**
+         * TODO Day 2 Task 8 part 2
+         * Check to see that the request code and result code are correct
+         * Get the Exam object out of the Intent and add it to the exam list
+         */
 
-            }
-        }
     }
 
     /**
@@ -126,10 +134,11 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
      * @param position
      */
     private void createTimeDialog (int position) {
-        //Create the dialog and pass the information to the getInstance function of the Dialog
-        TimeStudiedDialog timeStudiedDialog = TimeStudiedDialog.getInstance(1, position, MainActivity.this);
-        //Show the timeStudiedDialog by giving it a fragment manager.
-        timeStudiedDialog.show(getFragmentManager(), null);
+        /**
+         * TODO Day 3 task 13 part 2
+         * Get the timeStudiedDialog instance
+         * Show the Dialog after giving it a fragment manager
+         */
     }
 
     /**
