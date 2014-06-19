@@ -23,9 +23,9 @@ public class FileUtils extends Activity {
      * Save function for list
      * @param examList the list of exams to be saved
      */
-    public void writeListToFile (ArrayList<Exam> examList) {
+    public void writeListToFile (ArrayList<Exam> examList, Context context) {
 
-        File examFile = getFileStreamPath(FILE_NAME);
+        File examFile = context.getFileStreamPath(FILE_NAME);
 
         try {
             if(examFile.exists() || examFile.createNewFile()) {
@@ -46,10 +46,10 @@ public class FileUtils extends Activity {
      * @param examLoadList the list that is passed into the function
      * @return either the loaded list or null if no list exists
      */
-    public ArrayList<Exam> loadListFromFile (ArrayList<Exam> examLoadList) {
+    public ArrayList<Exam> loadListFromFile (ArrayList<Exam> examLoadList, Context context) {
 
 
-            File examFile = getFileStreamPath(FILE_NAME);
+            File examFile = context.getFileStreamPath(FILE_NAME);
 
             try {
                 if (examFile.exists()) {

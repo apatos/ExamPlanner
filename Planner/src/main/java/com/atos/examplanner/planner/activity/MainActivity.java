@@ -24,7 +24,6 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
     private ExamListAdaptor examListAdaptor;
     private ArrayList<Exam> examList;
     private static final int ADD_SUBJECT_REQUEST_CODE = 1;
-    private FileUtils fileUtils;
 
     /**
      * When activity is first created this function is called
@@ -36,17 +35,16 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        fileUtils = new FileUtils();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         //create a new exam ArrayList of Exam object and get load list if it has been created.
         examList = new ArrayList<Exam>();
-        ArrayList<Exam> loadedList = fileUtils.loadListFromFile(examList);
 
-        if ( loadedList != null) {
-          examList = loadedList;
-        }
+        /**
+         * TODO Day 3 Task 17
+         * Load Array List from fileUtils and set equal to the examList
+         */
 
         // Create the view
         createListView();
