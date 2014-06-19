@@ -65,25 +65,12 @@ public class ExamListAdaptor extends BaseAdapter{
      */
     private void setupView(int position, View convertView ) {
 
-        //Get the exam corresponding to the current position
-        Exam exam = ExamList.get(position);
+        /**
+         * TODO DAY 2 TASK 10
+         * Get the Exam object from the correct position. Find the TextViews from the convertView
+         * Set the Text from the object to the TextViews
+         * If the current revision time has not yet been set to anything set the text to a 00.00
+         */
 
-        //Find the TextViews
-        TextView titleView = (TextView) convertView.findViewById(R.id.exam_row_exam_title);
-        TextView teacherView = (TextView) convertView.findViewById(R.id.exam_row_teacher_name);
-        TextView dateView = (TextView) convertView.findViewById(R.id.exam_row_exam_date);
-        TextView timeView = (TextView) convertView.findViewById(R.id.exam_row_studied_time);
-
-        //Set the textView from the information given in the Exam object
-
-        titleView.setText(exam.getExamName());
-        teacherView.setText(exam.getTeacherName());
-        dateView.setText(exam.getExamDate());
-
-        if (exam.getRevisionTimeCurrently() == null){
-            timeView.setText("00.00");
-        } else {
-            timeView.setText(exam.getRevisionTimeCurrently());
-        }
     }
 }

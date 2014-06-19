@@ -17,11 +17,9 @@
        android:layout_marginTop="@dimen/activity_main_layout_above"
        android:layout_centerHorizontal="true"/>
 
-   <ListView
-        android:id="@+id/list_exam"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below = "@id/button_add">
-   </ListView>
+   <!--
+       TODO DAY 2 Task 9
+       Put a List View here.
+   -->
 
 </RelativeLayout>

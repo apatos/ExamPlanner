@@ -46,8 +46,7 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
          * Load Array List from fileUtils and set equal to the examList
          */
 
-        // Create the view
-        createListView();
+        // Create ListView
     }
 
     /**
@@ -77,7 +76,7 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
                 //Add the exam to the examList
                 examList.add(exam);
                 //call upon createListFunction
-                createListView();
+
             }
         }
     }
@@ -87,14 +86,12 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
      */
     public void createListView () {
 
-        //Find the listView from the main view
-        ListView listView = (ListView) findViewById(R.id.list_exam);
-
-        //Pass the adaptor the array list and the context of the current activity
-        examListAdaptor = new ExamListAdaptor(examList, this);
-
-        //Set the adaptor to the listView
-        listView.setAdapter(examListAdaptor);
+        /**
+         * TODO Day 2 Task 10 part 2
+         * Find the ListView from the main view.
+         * Pass the adaptor the array list and the context of the current activity.
+         * Set the adaptor to the listView
+         */
 
         /**
          * TODO Day 3 Task 12

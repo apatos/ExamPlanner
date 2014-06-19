@@ -5,37 +5,10 @@
     android:layout_height="wrap_content"
     android:padding="5dp">
 
-
-    <TextView
-        android:id="@+id/exam_row_exam_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/placeholder_text"/>
-    <TextView
-        android:id="@+id/exam_row_label_studied_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/row_studied_text"
-        android:layout_alignParentRight="true"/>
-    <TextView
-        android:id="@+id/exam_row_teacher_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/exam_row_exam_title"
-        android:text="@string/placeholder_text"/>
-    <TextView
-        android:id="@+id/exam_row_studied_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/placeholder_text"
-        android:layout_below="@+id/exam_row_label_studied_time"
-        android:layout_alignParentRight="true"/>
-    <TextView
-        android:id="@+id/exam_row_exam_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/placeholder_text"
-        android:layout_below="@+id/exam_row_teacher_name"
-        android:layout_centerHorizontal="true"/>
+    <!--
+        TODO Day 2 Task 11
+        Create TextViews for Exam Title, Time Studied label, Teacher Name
+        Time Studied and exam row date.
+    -->
 
 </RelativeLayout>
