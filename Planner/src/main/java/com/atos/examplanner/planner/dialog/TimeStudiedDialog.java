@@ -73,52 +73,26 @@ public class TimeStudiedDialog extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.dialog_time_studied, container, false);
         /**
-         * Day 3 Task 13
+         * TODO Day 3 Task 13
          * Get the buttons from view. For each button call upon appropriate function to select
          * or cancel the dialog. Remember to set the title for the dialog
          */
-        //Get the view for the buttons and set the on click listener for the cancel button
-        Button cancelButton = (Button) rootView.findViewById(R.id.dialog_time_button_cancel);
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cancelDialog();
-            }
-        });
-
-        //Get the view for the buttons and set the on click listener for the select button
-        Button selectButton = (Button) rootView.findViewById(R.id.dialog_time_button_select);
-        selectButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                timeSelected();
-            }
-        });
-
-        editText = (EditText) rootView.findViewById(R.id.dialog_time_edittext);
-
-        getDialog().setTitle("Please Enter a time");
 
         return rootView;
     }
 
     /**
-     * When time ok button is pressed this function is called. Get the text from information from the editText and pass it on
+     * When time ok button is pressed this function is called.
      */
-
     private void timeSelected() {
-        if (listener != null) {
-            String timeEntered = editText.getText().toString();
-            listener.onTimeSelected(timeEntered, requestCode, position);
-        }
+        //Check to see if listener has been created. Get the text from information from the editText and pass it on
 
-        dismiss();
     }
     /**
      * Dismisses the dialog fragment
      */
     private void cancelDialog() {
-        dismiss();
+
     }
 
     /**

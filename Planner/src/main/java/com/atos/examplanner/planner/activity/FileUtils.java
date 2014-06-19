@@ -48,22 +48,24 @@ public class FileUtils extends Activity {
      */
     public ArrayList<Exam> loadListFromFile (ArrayList<Exam> examLoadList) {
 
-        File examFile = getFileStreamPath(FILE_NAME);
-        try {
-            if (examFile.exists()) {
 
-                FileInputStream fileInputStream = openFileInput(FILE_NAME);
-                ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-                examLoadList = (ArrayList<Exam>) objectInputStream.readObject();
-                fileInputStream.close();
+            File examFile = getFileStreamPath(FILE_NAME);
 
-            } else {
-                return null;
+            try {
+                if (examFile.exists()) {
+
+                    FileInputStream fileInputStream = openFileInput(FILE_NAME);
+                    ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+                    examLoadList = (ArrayList<Exam>) objectInputStream.readObject();
+                    fileInputStream.close();
+
+                } else {
+                    return null;
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
 
         return examLoadList;
     }

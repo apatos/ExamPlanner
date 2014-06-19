@@ -99,32 +99,15 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
         listView.setAdapter(examListAdaptor);
 
         /**
-         * Day 3 Task 12
+         * TODO Day 3 Task 12
          * Set on click listener to call upon create time dialog and pass it the position
          */
-        //Set setOnItemClickListener for the list view. Creates a custom dialog to add time to the item
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                createTimeDialog(position);
-            }
-        });
 
         /**
-         * Day 3 Task 15
+         * TODO Day 3 Task 15
          * Set an on item long click listener to call upon createDeleteDialog and pass it the position
          */
-        //Set setOnItemLongClickListener. This calls upon a function to create an alert dialog that allows the item to be deleted
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
 
-                //Calls the createDeleteDialog function and passes it the position of the item that has been clicked
-                createDeleteDialog(position);
-
-                return true;
-            }
-        });
     }
 
     /**
@@ -137,17 +120,9 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
     public void onTimeSelected(String timeEntered, int requestCode, int position) {
 
         /**
-         * Day 3 Task 14
+         * TODO Day 3 Task 14
          * Get the Exam object that corresponds to item selected. Set the revision time currently
          */
-        //Get the Exam object that has been pressed
-        Exam selectedExam = examList.get(position);
-        //Set the Revision time currently with the timeEntered string
-        selectedExam.setRevisionTimeCurrently(timeEntered);
-        //Save the change
-        fileUtils.writeListToFile(examList);
-        //Inform the adaptor that the examList has changed
-        examListAdaptor.notifyDataSetChanged();
 
     }
 
@@ -169,37 +144,12 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
     private void createDeleteDialog (final int position) {
 
         /**
-         * Day 3 Task 16
+         * TODO Day 3 Task 16
          * Create an alert dialog that allows you to delete the selected Item in the list
          * Remember to set titles and messages. Notify the adaptor that the arrayList has
          * changed once the Exam has been removed from the arrayList.
          */
 
-        //Get the alertDialog builder
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
-        //Set the title, message, PositiveButton and NegativeButtons.
-        alertDialogBuilder.setTitle("Delete");
-        alertDialogBuilder.setMessage("Delete this message?");
-        alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                //Remove the selected item from the examList
-                examList.remove(position);
-                examListAdaptor.notifyDataSetChanged();
-                fileUtils.writeListToFile(examList);
-                dialogInterface.cancel();
-            }
-        });
-        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.cancel();
-            }
-        });
-
-        //Create the alertDialog and then show it
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
     }
 }
