@@ -65,12 +65,16 @@ public class ExamListAdaptor extends BaseAdapter{
      */
     private void setupView(int position, View convertView ) {
 
+        //Get the exam corresponding to the current position
         Exam exam = ExamList.get(position);
 
+        //Find the TextViews
         TextView titleView = (TextView) convertView.findViewById(R.id.exam_row_exam_title);
         TextView teacherView = (TextView) convertView.findViewById(R.id.exam_row_teacher_name);
         TextView dateView = (TextView) convertView.findViewById(R.id.exam_row_exam_date);
         TextView timeView = (TextView) convertView.findViewById(R.id.exam_row_studied_time);
+
+        //Set the textView from the information given in the Exam object
 
         titleView.setText(exam.getExamName());
         teacherView.setText(exam.getTeacherName());

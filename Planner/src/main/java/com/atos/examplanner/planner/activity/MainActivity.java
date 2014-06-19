@@ -40,12 +40,15 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //create a new exam ArrayList of Exam object and get load list if it has been created. Create the view.
+        //create a new exam ArrayList of Exam object and get load list if it has been created.
         examList = new ArrayList<Exam>();
-        if (fileUtils.loadListFromFile(examList) != null) {
-          examList = fileUtils.loadListFromFile(examList);
+        ArrayList<Exam> loadedList = fileUtils.loadListFromFile(examList);
+
+        if ( loadedList != null) {
+          examList = loadedList;
         }
 
+        // Create the view
         createListView();
     }
 

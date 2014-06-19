@@ -73,6 +73,7 @@ public class TimeStudiedDialog extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.dialog_time_studied, container, false);
 
+        //Get the view for the buttons and set the on click listener for the cancel button
         Button cancelButton = (Button) rootView.findViewById(R.id.dialog_time_button_cancel);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +82,7 @@ public class TimeStudiedDialog extends DialogFragment {
             }
         });
 
+        //Get the view for the buttons and set the on click listener for the select button
         Button selectButton = (Button) rootView.findViewById(R.id.dialog_time_button_select);
         selectButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,10 +110,9 @@ public class TimeStudiedDialog extends DialogFragment {
         dismiss();
     }
     /**
-     * Cancels the dialog fragment
+     * Dismisses the dialog fragment
      */
     private void cancelDialog() {
-
         dismiss();
     }
 
