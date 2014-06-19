@@ -98,6 +98,10 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
         //Set the adaptor to the listView
         listView.setAdapter(examListAdaptor);
 
+        /**
+         * Day 3 Task 12
+         * Set on click listener to call upon create time dialog and pass it the position
+         */
         //Set setOnItemClickListener for the list view. Creates a custom dialog to add time to the item
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -106,6 +110,10 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
             }
         });
 
+        /**
+         * Day 3 Task 15
+         * Set an on item long click listener to call upon createDeleteDialog and pass it the position
+         */
         //Set setOnItemLongClickListener. This calls upon a function to create an alert dialog that allows the item to be deleted
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -128,6 +136,10 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
     @Override
     public void onTimeSelected(String timeEntered, int requestCode, int position) {
 
+        /**
+         * Day 3 Task 14
+         * Get the Exam object that corresponds to item selected. Set the revision time currently
+         */
         //Get the Exam object that has been pressed
         Exam selectedExam = examList.get(position);
         //Set the Revision time currently with the timeEntered string
@@ -139,7 +151,6 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
 
     }
 
-
     /**
      * Creates the custom time dialog and shows it
      * @param position
@@ -150,11 +161,19 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
         //Show the timeStudiedDialog by giving it a fragment manager.
         timeStudiedDialog.show(getFragmentManager(), null);
     }
+
     /**
      * Function to create dialog to allow the item pressed to be deleted
      * @param position
      */
     private void createDeleteDialog (final int position) {
+
+        /**
+         * Day 3 Task 16
+         * Create an alert dialog that allows you to delete the selected Item in the list
+         * Remember to set titles and messages. Notify the adaptor that the arrayList has
+         * changed once the Exam has been removed from the arrayList.
+         */
 
         //Get the alertDialog builder
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);

@@ -72,7 +72,11 @@ public class TimeStudiedDialog extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.dialog_time_studied, container, false);
-
+        /**
+         * Day 3 Task 13
+         * Get the buttons from view. For each button call upon appropriate function to select
+         * or cancel the dialog. Remember to set the title for the dialog
+         */
         //Get the view for the buttons and set the on click listener for the cancel button
         Button cancelButton = (Button) rootView.findViewById(R.id.dialog_time_button_cancel);
         cancelButton.setOnClickListener(new View.OnClickListener() {
@@ -101,6 +105,7 @@ public class TimeStudiedDialog extends DialogFragment {
     /**
      * When time ok button is pressed this function is called. Get the text from information from the editText and pass it on
      */
+
     private void timeSelected() {
         if (listener != null) {
             String timeEntered = editText.getText().toString();
