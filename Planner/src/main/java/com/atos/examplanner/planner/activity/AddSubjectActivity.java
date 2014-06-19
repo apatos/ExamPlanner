@@ -21,13 +21,6 @@ public class AddSubjectActivity extends Activity {
      * In button press function create a new exam object set the information from the Edit Texts to it
      * Then finish the activity
      */
-    //EditText Variables for each editText to be on screen
-    private EditText examName;
-    private EditText teacherName;
-    private EditText examDate;
-    private EditText timeWanted;
-    private EditText desiredMark;
-    private EditText examWorth;
 
     /**
      * When activity is first created this function is called.
@@ -43,15 +36,6 @@ public class AddSubjectActivity extends Activity {
         super.onCreate(savedInstanceState);
         //Set the layout you want to appear
         setContentView(R.layout.activity_add_subject);
-
-        //Finds the EditText views by their ids
-        examName = (EditText)findViewById(R.id.text_box_name);
-        teacherName = (EditText)findViewById(R.id.text_box_teacher);
-        examDate  = (EditText)findViewById(R.id.text_box_exam_date);
-        timeWanted  = (EditText)findViewById(R.id.text_box_time_aim);
-        desiredMark = (EditText)findViewById(R.id.text_box_mark_wanted);
-        examWorth = (EditText)findViewById(R.id.text_box_exam_worth);
-
 
     }
 

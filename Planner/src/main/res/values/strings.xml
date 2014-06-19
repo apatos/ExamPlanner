@@ -28,4 +28,6 @@
     <string name="label_hours">hours</string>
     <string name="label_percentage">%</string>
 
+    <string name="activity_main_add_exam">Add Exam</string>
+
 </resources>

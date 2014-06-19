@@ -21,10 +21,6 @@ import java.util.ArrayList;
  */
 public class MainActivity extends Activity implements TimeStudiedDialog.TimeStudiedInteractionListener {
 
-    private ExamListAdaptor examListAdaptor;
-    private ArrayList<Exam> examList;
-    private static final int ADD_SUBJECT_REQUEST_CODE = 1;
-
     /**
      * When activity is first created this function is called
      *
@@ -56,7 +52,6 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
      * @param view The view of the button that has been pressed
      */
     public void addNewItem(View view) {
-
         /**
          * TODO Day 1 Task 4
          * Add New Intent this current context and new activity you want to start
@@ -67,10 +62,6 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
          * TODO Day 2 Task 7
          * Start the activity for a result.
          */
-        //Intent for activity
-        Intent addIntent = new Intent(this, AddSubjectActivity.class);
-        //Starts the activity with the Intent and request code
-        startActivity(addIntent);
     }
 
     /**
