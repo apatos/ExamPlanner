@@ -86,7 +86,7 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
     public void createListView () {
 
         /**
-         * TODO Day 2 Task 10 part 2
+         * TODO Day 2 Task 11 part 2
          * Find the ListView from the main view.
          * Pass the adaptor the array list and the context of the current activity.
          * Set the adaptor to the listView
