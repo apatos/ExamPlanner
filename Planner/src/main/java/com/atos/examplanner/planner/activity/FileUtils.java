@@ -30,7 +30,7 @@ public class FileUtils extends Activity {
         try {
             if(examFile.exists() || examFile.createNewFile()) {
 
-                FileOutputStream fileOutputStream = openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
+                FileOutputStream fileOutputStream = context.openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
                 objectOutputStream.writeObject(examList);
                 fileOutputStream.close();
@@ -54,7 +54,7 @@ public class FileUtils extends Activity {
             try {
                 if (examFile.exists()) {
 
-                    FileInputStream fileInputStream = openFileInput(FILE_NAME);
+                    FileInputStream fileInputStream = context.openFileInput(FILE_NAME);
                     ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
                     examLoadList = (ArrayList<Exam>) objectInputStream.readObject();
                     fileInputStream.close();
