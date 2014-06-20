@@ -62,8 +62,14 @@ public class AddSubjectActivity extends Activity {
         exam.setTeacherName(teacherName.getText().toString());
         exam.setExamDate(examDate.getText().toString());
         exam.setRevisionTimeWanted(timeWanted.getText().toString());
-        exam.setDesiredMark(Integer.parseInt(desiredMark.getText().toString()));
-        exam.setExamWorth(Integer.parseInt(examWorth.getText().toString()));
+
+        if (!desiredMark.getText().toString().equals("")) {
+            exam.setDesiredMark(Integer.parseInt(desiredMark.getText().toString()));
+        }
+
+        if (!examWorth.getText().toString().equals("")) {
+            exam.setExamWorth(Integer.parseInt(examWorth.getText().toString()));
+        }
 
         //Creates a new intent
         Intent intent = new Intent(this, MainActivity.class);
