@@ -29,7 +29,6 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
     private static final int ADD_SUBJECT_REQUEST_CODE = 1;
     private FileUtils fileUtils;
 
-    private static final String FILE_NAME = "ExamList";
     /**
      * When activity is first created this function is called
      *
@@ -82,6 +81,7 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
                 Exam exam = (Exam) data.getSerializableExtra("ExamTag");
                 //Add the exam to the examList
                 examList.add(exam);
+                fileUtils.writeListToFile(examList, this);
                 //call upon createListFunction
                 createListView();
             }

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 /**
  * Class to be treated as black box. To save and load files
  */
-public class FileUtils extends Activity {
+public class FileUtils {
 
     private static final String FILE_NAME = "ExamList";
     /**
@@ -29,7 +29,7 @@ public class FileUtils extends Activity {
         try {
             if(examFile.exists() || examFile.createNewFile()) {
 
-                FileOutputStream fileOutputStream = openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
+                FileOutputStream fileOutputStream = context.openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
                 objectOutputStream.writeObject(examList);
                 fileOutputStream.close();
