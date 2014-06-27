@@ -55,7 +55,8 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
         /**
          * TODO Day 1 Task 4
          * Add New Intent this current context and new activity you want to start
-         * Start activity with the intent
+         * Start activity with the intent.
+         * Link this to the button in the main activituy layout file that had been created in task 3
          */
 
         /**
@@ -73,7 +74,7 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         /**
-         * TODO Day 2 Task 8 part 2
+         * TODO Day 2 Task 8 Part B
          * Check to see that the request code and result code are correct
          * Get the Exam object out of the Intent and add it to the exam list
          */
@@ -86,7 +87,7 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
     public void createListView () {
 
         /**
-         * TODO Day 2 Task 11 part 2
+         * TODO Day 2 Task 11 Part B
          * Find the ListView from the main view.
          * Pass the adaptor the array list and the context of the current activity.
          * Set the adaptor to the listView
@@ -126,7 +127,7 @@ public class MainActivity extends Activity implements TimeStudiedDialog.TimeStud
      */
     private void createTimeDialog (int position) {
         /**
-         * TODO Day 3 task 13 part 2
+         * TODO Day 3 Task 13 Part B
          * Get the timeStudiedDialog instance
          * Show the Dialog after giving it a fragment manager
          */

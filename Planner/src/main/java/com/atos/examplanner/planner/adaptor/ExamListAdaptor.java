@@ -66,7 +66,7 @@ public class ExamListAdaptor extends BaseAdapter{
     private void setupView(int position, View convertView ) {
 
         /**
-         * TODO DAY 2 TASK 11
+         * TODO Day 2 Task 11 Part A
          * Get the Exam object from the correct position. Find the TextViews from the convertView
          * Set the Text from the object to the TextViews
          * If the current revision time has not yet been set to anything set the text to a 00.00

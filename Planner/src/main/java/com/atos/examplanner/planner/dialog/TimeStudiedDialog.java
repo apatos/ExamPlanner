@@ -73,8 +73,8 @@ public class TimeStudiedDialog extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.dialog_time_studied, container, false);
         /**
-         * TODO Day 3 Task 13
-         * Get the buttons from view. For each button call upon appropriate function to select
+         * TODO Day 3 Task 13 Part A
+         * Get the buttons from Dialog Layout view. For each button call upon appropriate function to select
          * or cancel the dialog. Remember to set the title for the dialog
          */
 
